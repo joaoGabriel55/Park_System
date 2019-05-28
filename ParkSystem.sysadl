@@ -30,8 +30,36 @@ Requirement FlagJobStatusFR ( 1.1 ) {
 Requirement VehicleEntranceManagementFR ( 2 ) {
 text =
 	"O sistema deve controlar a entrada de veículos por meio de uma cancela eletrônica. Um ticket com código de barras deve ser impresso para cada motorista antes do mesmo entrar no estacionament"
-}
 Requirement TicketPrinterFR ( 2.1 ) {
 text =
 	"Antes de o motorista entrar no estacionamento um ticket com código de barras deve ser impresso e recolhido pelo motorista. Associado ao código de barras impresso no ticket o sistema deve armazenar a hora em que o ticket foi gerado."
+}
+}
+Requirement ManageVehicleExit ( 3 ) {
+	text =
+	"O sistema deve gerenciar a saída de veículos por meio de uma cancela eletrônica. Os veículos poderão deixar o estacionamento apenas após o pagamento da taxa de estacionamento."
+	Requirement ReadTicket ( 3.1 ) {
+		text =
+		"A partir da leitura do código de barras impresso no ticket o sistema deve recuperar todas as informações associadas ao ticket (horário de entrada no estacionamento, valor da taxa de estacionamento,  se a taxa foi ou não paga, se foi paga o horário de pagamento )."
+	}
+}
+Requirement DetectVehicle ( 4 ) {
+	text =
+	"Ao se se aproximar com o veículo da cancela eletrônica a presença do veículo deve ser detectada de forma automática."
+}
+Requirement OpenElectronicCanceled ( 5 ) {
+	text =
+	"A cancela eletrônica deve abrir automaticamente após o motorista recolher o ticket impresso na entrada e no momento em que o motorista apresentar o ticket devidamente paga na saída do estacionamento"
+}
+Requirement ManagePayment ( 6 ) {
+	text =
+	"O sistema deve permitir ao usuário realizar o pagamento da taxa de estacionamento. O pagamento deve ser calculado com base no tempo em que o veículo esteve no estacionamento."
+	Requirement MakePayment ( 6.1 ) {
+		text =
+		"O sistema deve permitir ao usuário realizar o pagamento em caixas automáticos com cartão ou dinheiro."
+	}
+}
+Requirement OpenEmergencyCancel ( 7 ) {
+	text =
+	"Em casos de emergência o operador do estacionamento poderá abrir a cancela de emergência."
 }
