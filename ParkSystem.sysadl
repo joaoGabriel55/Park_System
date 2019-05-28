@@ -13,3 +13,5 @@ package SysADL.types {
 }
 Requirement Test ( 0 ) {
 }
+Requirement Test2 ( 1 ) {
+}
