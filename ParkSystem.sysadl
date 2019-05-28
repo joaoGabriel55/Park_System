@@ -19,3 +19,11 @@ Requirement FlagJobStatusFR ( 1.1 ) {
 	text =
 	"O status da vaga deve ser representado pela cor da lâmpada associada a ela, a cor vermelha indica que a vaga está ocupada, a cor verde indica que a vaga está disponível, a cor amarela indica que a vaga está disponível e que é destinada a idosos, a cor azul indica que a vaga está disponível e que é destinada à deficientes físicos."
 }
+Requirement VehicleEntranceManagementFR ( 2 ) {
+text =
+	"O sistema deve controlar a entrada de veículos por meio de uma cancela eletrônica. Um ticket com código de barras deve ser impresso para cada motorista antes do mesmo entrar no estacionament"
+}
+Requirement TicketPrinterFR ( 2.1 ) {
+text =
+	"Antes de o motorista entrar no estacionamento um ticket com código de barras deve ser impresso e recolhido pelo motorista. Associado ao código de barras impresso no ticket o sistema deve armazenar a hora em que o ticket foi gerado."
+}

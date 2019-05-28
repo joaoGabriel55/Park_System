@@ -58,7 +58,7 @@
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_NwI0YoFXEem-bZtLQwdsuA"/>
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_NwINUYFXEem-bZtLQwdsuA" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NwINUoFXEem-bZtLQwdsuA" x="5" y="44" width="248"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NwINUoFXEem-bZtLQwdsuA" x="5" y="175" width="248"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_x5xDEIFZEem-bZtLQwdsuA" type="3009" element="_x5R64IFZEem-bZtLQwdsuA">
               <children xmi:type="notation:Node" xmi:id="_x5xqIIFZEem-bZtLQwdsuA" type="5004"/>
@@ -75,13 +75,47 @@
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_x5yRMoFZEem-bZtLQwdsuA"/>
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_x5xDEYFZEem-bZtLQwdsuA" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x5xDEoFZEem-bZtLQwdsuA" x="315" y="29" width="356" height="157"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x5xDEoFZEem-bZtLQwdsuA" x="287" y="189" width="356" height="157"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_If5QgIFcEemrVv5EtbHMUQ" type="3009" element="_IfOiIoFcEemrVv5EtbHMUQ">
+              <children xmi:type="notation:Node" xmi:id="_If5Qg4FcEemrVv5EtbHMUQ" type="5004"/>
+              <children xmi:type="notation:Node" xmi:id="_If53kIFcEemrVv5EtbHMUQ" type="7003">
+                <children xmi:type="notation:Node" xmi:id="_If7swIFcEemrVv5EtbHMUQ" type="3010" element="_IfQ-YIFcEemrVv5EtbHMUQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_If7swYFcEemrVv5EtbHMUQ" fontName="Ubuntu" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_If7swoFcEemrVv5EtbHMUQ"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_If8T0IFcEemrVv5EtbHMUQ" type="3010" element="_IfSMgIFcEemrVv5EtbHMUQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_If8T0YFcEemrVv5EtbHMUQ" fontName="Ubuntu" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_If8T0oFcEemrVv5EtbHMUQ"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_If53kYFcEemrVv5EtbHMUQ"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_If53koFcEemrVv5EtbHMUQ"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_If5QgYFcEemrVv5EtbHMUQ" fontName="Ubuntu" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_If5QgoFcEemrVv5EtbHMUQ" x="441" y="35" width="330"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_If53k4FcEemrVv5EtbHMUQ" type="3009" element="_IfPwQYFcEemrVv5EtbHMUQ">
+              <children xmi:type="notation:Node" xmi:id="_If6eoIFcEemrVv5EtbHMUQ" type="5004"/>
+              <children xmi:type="notation:Node" xmi:id="_If7FsIFcEemrVv5EtbHMUQ" type="7003">
+                <children xmi:type="notation:Node" xmi:id="_If864IFcEemrVv5EtbHMUQ" type="3010" element="_IfSzkIFcEemrVv5EtbHMUQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_If864YFcEemrVv5EtbHMUQ" fontName="Ubuntu" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_If864oFcEemrVv5EtbHMUQ"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_If9h8IFcEemrVv5EtbHMUQ" type="3010" element="_IfUBsIFcEemrVv5EtbHMUQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_If9h8YFcEemrVv5EtbHMUQ" fontName="Ubuntu" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_If9h8oFcEemrVv5EtbHMUQ"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_If7FsYFcEemrVv5EtbHMUQ"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_If7FsoFcEemrVv5EtbHMUQ"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_If53lIFcEemrVv5EtbHMUQ" fontName="Ubuntu" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_If53lYFcEemrVv5EtbHMUQ" x="82" y="98" width="290"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_Mopn4oFXEem-bZtLQwdsuA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_Mopn44FXEem-bZtLQwdsuA"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_MopA0YFXEem-bZtLQwdsuA" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MopA0oFXEem-bZtLQwdsuA" x="30" y="85" width="688" height="443"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MopA0oFXEem-bZtLQwdsuA" x="30" y="85" width="911" height="478"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_CuVT0oFXEem-bZtLQwdsuA"/>
       </data>
@@ -114,7 +148,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@subNodeMappings[name='SysADL.Red.ID']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_Nv6x8IFXEem-bZtLQwdsuA" name="text=O sistema deve monitorar cada uma das vagas do estacionamento e sinalizar o status da vaga por meio de lâmpadas, diferenciando as vagas destinadas a idosos e deficientes físicos das demais">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_Nv6x8IFXEem-bZtLQwdsuA" name="text=O sistema deve monitorar cada uma das vagas do estacionamento e sinalizar o status da vaga por meio de l�mpadas, diferenciando as vagas destinadas a idosos e deficientes f�sicos das demais">
           <target xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#1"/>
           <semanticElements xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#1"/>
           <ownedStyle xmi:type="diagram:Dot" uid="_NwGYIIFXEem-bZtLQwdsuA" showIcon="false" labelPosition="node">
@@ -141,10 +175,64 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@subNodeMappings[name='SysADL.Red.ID']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_x5t_wIFZEem-bZtLQwdsuA" name="text=O status da vaga deve ser representado pela cor da lâmpada associada a ela, a cor vermelha indica que a vaga está ocupada, a cor verde indica que a vaga está disponível, a cor amarela indica que a vaga está disponível e que é destinada a idosos, a cor azul indica que a vaga está disponível e que é destinada à deficientes físicos.">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_x5t_wIFZEem-bZtLQwdsuA" name="text=O status da vaga deve ser representado pela cor da l�mpada associada a ela, a cor vermelha indica que a vaga est� ocupada, a cor verde indica que a vaga est� dispon�vel, a cor amarela indica que a vaga est� dispon�vel e que � destinada a idosos, a cor azul indica que a vaga est� dispon�vel e que � destinada � deficientes f�sicos.">
           <target xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#1.1"/>
           <semanticElements xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#1.1"/>
           <ownedStyle xmi:type="diagram:Dot" uid="_x5um0IFZEem-bZtLQwdsuA" showIcon="false" labelPosition="node">
+            <description xmi:type="style:DotDescription" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@subNodeMappings[name='SysADL.Req.Text']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@subNodeMappings[name='SysADL.Req.Text']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_IfOiIoFcEemrVv5EtbHMUQ" name="&lt;&lt;requirement>>&#xA;VehicleEntranceManagementFR">
+        <target xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#2"/>
+        <semanticElements xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#2"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_IfPJMIFcEemrVv5EtbHMUQ" showIcon="false" borderSize="1" borderSizeComputationExpression="1">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_IfQ-YIFcEemrVv5EtbHMUQ" name="id=2">
+          <target xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#2"/>
+          <semanticElements xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#2"/>
+          <ownedStyle xmi:type="diagram:Dot" uid="_IfRlcIFcEemrVv5EtbHMUQ" showIcon="false" labelPosition="node">
+            <description xmi:type="style:DotDescription" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@subNodeMappings[name='SysADL.Red.ID']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@subNodeMappings[name='SysADL.Red.ID']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_IfSMgIFcEemrVv5EtbHMUQ" name="text=O sistema deve controlar a entrada de ve�culos por meio de uma cancela eletr�nica. Um ticket com c�digo de barras deve ser impresso para cada motorista antes do mesmo entrar no estacionament">
+          <target xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#2"/>
+          <semanticElements xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#2"/>
+          <ownedStyle xmi:type="diagram:Dot" uid="_IfSMgYFcEemrVv5EtbHMUQ" showIcon="false" labelPosition="node">
+            <description xmi:type="style:DotDescription" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@subNodeMappings[name='SysADL.Req.Text']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@subNodeMappings[name='SysADL.Req.Text']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_IfPwQYFcEemrVv5EtbHMUQ" name="&lt;&lt;requirement>>&#xA;TicketPrinterFR">
+        <target xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#2.1"/>
+        <semanticElements xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#2.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_IfQXUIFcEemrVv5EtbHMUQ" showIcon="false" borderSize="1" borderSizeComputationExpression="1">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_IfSzkIFcEemrVv5EtbHMUQ" name="id=2.1">
+          <target xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#2.1"/>
+          <semanticElements xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#2.1"/>
+          <ownedStyle xmi:type="diagram:Dot" uid="_IfTaoIFcEemrVv5EtbHMUQ" showIcon="false" labelPosition="node">
+            <description xmi:type="style:DotDescription" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@subNodeMappings[name='SysADL.Red.ID']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@subNodeMappings[name='SysADL.Red.ID']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_IfUBsIFcEemrVv5EtbHMUQ" name="text=Antes de o motorista entrar no estacionamento um ticket com c�digo de barras deve ser impresso e recolhido pelo motorista. Associado ao c�digo de barras impresso no ticket o sistema deve armazenar a hora em que o ticket foi gerado.">
+          <target xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#2.1"/>
+          <semanticElements xmi:type="sysADL_Sintax:Requirement" href="ParkSystem.sysadl#2.1"/>
+          <ownedStyle xmi:type="diagram:Dot" uid="_IfUowIFcEemrVv5EtbHMUQ" showIcon="false" labelPosition="node">
             <description xmi:type="style:DotDescription" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@subNodeMappings[name='SysADL.Req.Text']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/SysADL.viewpoints/description/SysADL_vp.odesign#//@ownedViewpoints[name='SysADL.Requirements']/@ownedRepresentations[name='SysADL.Requirements.Main']/@defaultLayer/@containerMappings[name='SysADL.Req.Self']/@subContainerMappings[name='SysADL.Req.Requirement']/@subNodeMappings[name='SysADL.Req.Text']"/>
