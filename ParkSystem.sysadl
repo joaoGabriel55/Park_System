@@ -11,7 +11,11 @@ package SysADL.types {
 	value type Real {
 	}
 }
-Requirement Test ( 0 ) {
+Requirement VehicleEntranceManagementFR ( 2 ) {
+text =
+	"O sistema deve controlar a entrada de veículos por meio de uma cancela eletrônica. Um ticket com código de barras deve ser impresso para cada motorista antes do mesmo entrar no estacionament"
 }
-Requirement Test2 ( 1 ) {
+Requirement TicketPrinterFR ( 2.1 ) {
+text =
+	"Antes de o motorista entrar no estacionamento um ticket com código de barras deve ser impresso e recolhido pelo motorista. Associado ao código de barras impresso no ticket o sistema deve armazenar a hora em que o ticket foi gerado."
 }
