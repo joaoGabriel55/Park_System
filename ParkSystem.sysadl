@@ -14,10 +14,18 @@ package SysADL.types {
 Requirement ManageVacanciesFR ( 1 ) {
 	text =
 	"O sistema deve monitorar cada uma das vagas do estacionamento e sinalizar o status da vaga por meio de lâmpadas, diferenciando as vagas destinadas a idosos e deficientes físicos das demais"
-}
 Requirement FlagJobStatusFR ( 1.1 ) {
 	text =
 	"O status da vaga deve ser representado pela cor da lâmpada associada a ela, a cor vermelha indica que a vaga está ocupada, a cor verde indica que a vaga está disponível, a cor amarela indica que a vaga está disponível e que é destinada a idosos, a cor azul indica que a vaga está disponível e que é destinada à deficientes físicos."
+}
+	Requirement DetectVagaStatus ( 1.2 ) {
+		text =
+		"O sistema deve detectar para cada vaga do estacionamento se existe ou não um veículo estacionado"
+	}
+	Requirement NumberOfAvailableVacancies ( 1.3 ) {
+		text =
+		"O sistema deve indicar em painéis a quantidade de vagas disponíveis em cada ala do estacionamento."
+	}
 }
 Requirement VehicleEntranceManagementFR ( 2 ) {
 text =
