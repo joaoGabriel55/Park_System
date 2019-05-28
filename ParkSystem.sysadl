@@ -11,11 +11,11 @@ package SysADL.types {
 	value type Real {
 	}
 }
-Requirement VehicleEntranceManagementFR ( 2 ) {
-text =
-	"O sistema deve controlar a entrada de veÃ­culos por meio de uma cancela eletrÃ´nica. Um ticket com cÃ³digo de barras deve ser impresso para cada motorista antes do mesmo entrar no estacionament"
+Requirement ManageVacanciesFR ( 1 ) {
+	text =
+	"O sistema deve monitorar cada uma das vagas do estacionamento e sinalizar o status da vaga por meio de lâmpadas, diferenciando as vagas destinadas a idosos e deficientes físicos das demais"
 }
-Requirement TicketPrinterFR ( 2.1 ) {
-text =
-	"Antes de o motorista entrar no estacionamento um ticket com cÃ³digo de barras deve ser impresso e recolhido pelo motorista. Associado ao cÃ³digo de barras impresso no ticket o sistema deve armazenar a hora em que o ticket foi gerado."
+Requirement FlagJobStatusFR ( 1.1 ) {
+	text =
+	"O status da vaga deve ser representado pela cor da lâmpada associada a ela, a cor vermelha indica que a vaga está ocupada, a cor verde indica que a vaga está disponível, a cor amarela indica que a vaga está disponível e que é destinada a idosos, a cor azul indica que a vaga está disponível e que é destinada à deficientes físicos."
 }
