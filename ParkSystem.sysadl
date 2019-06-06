@@ -86,6 +86,8 @@ package ParkingSystemComponents {
 	import ParkingSystemConnectors;
 	import SysADL.types;
 	component def GerenciadorVagas {
+			ports:
+			outVagas : VagasOPT;
 		configuration {
 		}
 	}
@@ -96,20 +98,29 @@ package ParkingSystemComponents {
 		boundary component def DisplayVagasDisponiveisCP {
 	}
 	component def GerenciadorEntradaSaidaVeiculo {
+			ports:
+			inCodTicket : CodigoTicketIPT;
 		configuration {
 		}
 	}
 		boundary component def ImpressaoTicket {
-	}
+	ports:
+			inGerarTicket : GerarTicketIPT;
+			outCodTicket : CodigoTicketOPT;
+		}
 	component def LeituraTicket {
 	}
 component def BotaoDeEmergencia {
 		}
-		component def DetectorVeiculoCP {
+		component def DetectorEntradaVeiculoCP {
+		ports:
+			^out : CommandOPT;
 		}
-		component def AberturaCancelaCP {
+		component def ControleSaidaCancelaCP {
 		}
-		component def GerenciadorPagamentoCP {
+		boundary component def GerenciadorPagamentoCP {
+		ports:
+			newPort : CodigoTicketIPT;
 		}
 		component def GerenciadorEstacionamentoARCH {
 			configuration {
@@ -123,7 +134,43 @@ component def BotaoDeEmergencia {
 		}
 		component def ControladorVagaLocalCP {
 		}
+	component def DetectorSaidaVeiculoCP {
+		}
+		component def ControleEntradaCancelaCP {
+			ports:
+			^in : CommandIPT;
+			inVagas : VagasIPT;
+			outGerarTicket : GerarTicketOPT;
+		}
+		boundary component def CancelaEntrada {
+		}
+		boundary component def CancelaSaida {
+		}
 	}
 package ParkingSystemPorts {
 	import SysADL.types;
-}
+port def CommandIPT {
+			flow in Comando
+		}
+		port def CommandOPT {
+			flow out Comando
+		}
+		port def VagasIPT {
+			flow in Int
+		}
+		port def VagasOPT {
+			flow out Int
+		}
+		port def CodigoTicketOPT {
+			flow out String
+		}
+		port def GerarTicketIPT {
+			flow in Boolean
+		}
+		port def GerarTicketOPT {
+			flow out Boolean
+		}
+		port def CodigoTicketIPT {
+			flow in String
+		}
+	}
