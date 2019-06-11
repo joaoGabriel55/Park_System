@@ -19,56 +19,69 @@ package SysADL.types {
 	}
 	dimension Identificacao
 	unit Codigo {
-		dimension = Identificacao } datatype Vaga {
-			attributes:
-			tipo : Tipo;
-			status : Boolean;
+		dimension = Identificacao }
+		value type CodigoIdentificacao {
+			unit = Codigo
+			dimension = Identificacao
 		}
 	}
 	Requirement GerenciadorVagasFR ( 1 ) {
 		text =
-		"O sistema deve monitorar cada uma das vagas do estacionamento e sinalizar o status da vaga por meio de lâmpadas, diferenciando as vagas destinadas a idosos e deficientes físicos das demais"
+		"O sistema deve monitorar cada uma das vagas do estacionamento e sinalizar o status da vaga por meio de lâmpadas, diferenciando as vagas destinadas a idosos e deficientes físicos das demais" satisfied
+		by ParkingSystemComponents.GerenciadorVagas;
 		Requirement TipoVagaFR ( 1.1 ) {
 			text =
 			"O status da vaga deve ser representado pela cor da lâmpada associada a ela, a cor vermelha indica que a vaga está ocupada, a cor verde indica que a vaga está disponível, a cor amarela indica que a vaga está disponível e que é destinada a idosos, a cor azul indica que a vaga está disponível e que é destinada à deficientes físicos."
+			satisfied by ParkingSystemComponents.TipoVagaLedCP;
 			derive DetectarStatusVagaFR;
 		}
 		Requirement ContadorVagasDiponiveisFR ( 1.3 ) {
 			text =
 			"O sistema deve indicar em painéis a quantidade de vagas disponíveis em cada ala do estacionamento."
+		satisfied by ParkingSystemComponents.ControladorQtdVagas;
 		}
 	}
 	Requirement DetectarStatusVagaFR ( 1.2 ) {
 		text =
 		"O sistema deve detectar para cada vaga do estacionamento se existe ou não um veículo estacionado"
+	satisfied by ParkingSystemComponents.DetectorPresencaVagaCP;
 	}
 	Requirement GerenciadorEntradaVeiculosFR ( 2 ) {
 		text =
-		"O sistema deve controlar a entrada de veículos por meio de uma cancela eletrônica. Um ticket com código de barras deve ser impresso para cada motorista antes do mesmo entrar no estacionament"
+		"O sistema deve controlar a entrada de veículos por meio de uma cancela eletrônica. Um ticket com código de barras deve ser impresso para cada motorista antes do mesmo entrar no estacionament" satisfied
+		by ParkingSystemComponents.GerenciadorEntradaSaidaVeiculo;
 		Requirement ImprimirTicketFR ( 2.1 ) {
 			text =
 			"Antes de o motorista entrar no estacionamento um ticket com código de barras deve ser impresso e recolhido pelo motorista. Associado ao código de barras impresso no ticket o sistema deve armazenar a hora em que o ticket foi gerado."
+		satisfied by ParkingSystemComponents.ImpressaoTicketCP;
 		}
 	}
 	Requirement GerenciadorSaidaVeiculosFR ( 3 ) {
 		text =
-		"O sistema deve gerenciar a saída de veículos por meio de uma cancela eletrônica. Os veículos poderão deixar o estacionamento apenas após o pagamento da taxa de estacionamento."
+		"O sistema deve gerenciar a saída de veículos por meio de uma cancela eletrônica. Os veículos poderão deixar o estacionamento apenas após o pagamento da taxa de estacionamento." satisfied
+		by ParkingSystemComponents.GerenciadorEntradaSaidaVeiculo;
 		Requirement LerTicketFR ( 3.1 ) {
 			text =
 			"A partir da leitura do código de barras impresso no ticket o sistema deve recuperar todas as informações associadas ao ticket (horário de entrada no estacionamento, valor da taxa de estacionamento,  se a taxa foi ou não paga, se foi paga o horário de pagamento )."
+		satisfied by ParkingSystemComponents.LeituraTicketCP;
 		}
 	}
 	Requirement DetectorVeiculoFR ( 4 ) {
 		text =
 		"Ao se se aproximar com o veículo da cancela eletrônica a presença do veículo deve ser detectada de forma automática."
+	satisfied by ParkingSystemComponents.DetectorEntradaVeiculoCP,
+		ParkingSystemComponents.DetectorSaidaVeiculoCP;
 	}
 	Requirement AbrirCancelaEletronicaFR ( 5 ) {
 		text =
 		"A cancela eletrônica deve abrir automaticamente após o motorista recolher o ticket impresso na entrada e no momento em que o motorista apresentar o ticket devidamente paga na saída do estacionamento"
+	satisfied by ParkingSystemComponents.EntradaCancelaCP,
+		ParkingSystemComponents.SaidaCancelaCP;
 	}
 	Requirement GerenciadorPagamentoFR ( 6 ) {
 		text =
-		"O sistema deve permitir ao usuário realizar o pagamento da taxa de estacionamento. O pagamento deve ser calculado com base no tempo em que o veículo esteve no estacionamento."
+		"O sistema deve permitir ao usuário realizar o pagamento da taxa de estacionamento. O pagamento deve ser calculado com base no tempo em que o veículo esteve no estacionamento." satisfied
+		by ParkingSystemComponents.GerenciadorPagamentoCP;
 		Requirement RealizarPagamentoFR ( 6.1 ) {
 			text =
 			"O sistema deve permitir ao usuário realizar o pagamento em caixas automáticos com cartão ou dinheiro."
@@ -77,6 +90,7 @@ package SysADL.types {
 	Requirement AbrirCancelaEmergencialFR ( 7 ) {
 		text =
 		"Em casos de emergência o operador do estacionamento poderá abrir a cancela de emergência."
+	satisfied by ParkingSystemComponents.BotaoDeEmergenciaCP;
 	}
 	package ParkingSystemConnectors {
 		import ParkingSystemPorts;
@@ -467,7 +481,7 @@ package SysADL.types {
 			flow out Int
 		}
 		port def CodigoTicketOPT {
-			flow out String
+			flow out CodigoIdentificacao
 		}
 		port def GerarTicketIPT {
 			flow in Boolean
@@ -476,7 +490,7 @@ package SysADL.types {
 			flow out Boolean
 		}
 		port def CodigoTicketIPT {
-			flow in String
+			flow in CodigoIdentificacao
 		}
 		port def StatusPagamentoIPT {
 			flow in Boolean
@@ -496,4 +510,15 @@ package SysADL.types {
 		port def TipoCorVagaOPT {
 			flow out Tipo
 		}
+	}
+	Requirement QualidadeNFR ( 8 ) {
+		text = "O sistema deve satisfazer o requisito não funcional de Qualidade"
+		Requirement ModificabilidadeNFR ( 8.1 ) {
+			text = "Permitir um baixo custo para modificações" derive
+			ModificabilidadeDeSensoresNFR;
+		}
+	}
+	Requirement ModificabilidadeDeSensoresNFR ( 8.2 ) {
+		text =
+		"Permitir que novas vagas e respectivos sensores sejam adicionados ao sistema"
 	}
