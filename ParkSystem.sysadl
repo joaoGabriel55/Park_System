@@ -135,7 +135,7 @@ package SysADL.types {
 			~origem : CodigoTicketIPT;
 			~destino : CodigoTicketOPT;
 			flows:
-			String from origem to destino
+			CodigoIdentificacao from origem to destino
 		}
 		connector def GerarTicketCN {
 			participants:
