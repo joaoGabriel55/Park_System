@@ -11,8 +11,7 @@ package SysADL.types {
 	value type Real {
 	}
 	enum Comando {
-		ABRIR, FECHAR
-	, EMERGENCIA
+		ABRIR, FECHAR, EMERGENCIA
 	}
 	enum Tipo {
 		VERDE, AZUL, AMARELO
@@ -27,8 +26,8 @@ package SysADL.types {
 	}
 	Requirement GerenciadorVagasFR ( 1 ) {
 		text =
-		"O sistema deve monitorar cada uma das vagas do estacionamento e sinalizar o status da vaga por meio de lâmpadas, diferenciando as vagas destinadas a idosos e deficientes físicos das demais" satisfied
-		by ParkingSystemComponents.GerenciadorVagas;
+		"O sistema deve monitorar cada uma das vagas do estacionamento e sinalizar o status da vaga por meio de lâmpadas, diferenciando as vagas destinadas a idosos e deficientes físicos das demais"
+		satisfied by ParkingSystemComponents.GerenciadorVagas;
 		Requirement TipoVagaFR ( 1.1 ) {
 			text =
 			"O status da vaga deve ser representado pela cor da lâmpada associada a ela, a cor vermelha indica que a vaga está ocupada, a cor verde indica que a vaga está disponível, a cor amarela indica que a vaga está disponível e que é destinada a idosos, a cor azul indica que a vaga está disponível e que é destinada à deficientes físicos."
@@ -38,50 +37,50 @@ package SysADL.types {
 		Requirement ContadorVagasDiponiveisFR ( 1.3 ) {
 			text =
 			"O sistema deve indicar em painéis a quantidade de vagas disponíveis em cada ala do estacionamento."
-		satisfied by ParkingSystemComponents.ControladorQtdVagas;
+			satisfied by ParkingSystemComponents.ControladorQtdVagas;
 		}
 	}
 	Requirement DetectarStatusVagaFR ( 1.2 ) {
 		text =
 		"O sistema deve detectar para cada vaga do estacionamento se existe ou não um veículo estacionado"
-	satisfied by ParkingSystemComponents.DetectorPresencaVagaCP;
+		satisfied by ParkingSystemComponents.DetectorPresencaVagaCP;
 	}
 	Requirement GerenciadorEntradaVeiculosFR ( 2 ) {
 		text =
-		"O sistema deve controlar a entrada de veículos por meio de uma cancela eletrônica. Um ticket com código de barras deve ser impresso para cada motorista antes do mesmo entrar no estacionament" satisfied
-		by ParkingSystemComponents.GerenciadorEntradaSaidaVeiculo;
+		"O sistema deve controlar a entrada de veículos por meio de uma cancela eletrônica. Um ticket com código de barras deve ser impresso para cada motorista antes do mesmo entrar no estacionament"
+		satisfied by ParkingSystemComponents.GerenciadorEntradaSaidaVeiculo;
 		Requirement ImprimirTicketFR ( 2.1 ) {
 			text =
 			"Antes de o motorista entrar no estacionamento um ticket com código de barras deve ser impresso e recolhido pelo motorista. Associado ao código de barras impresso no ticket o sistema deve armazenar a hora em que o ticket foi gerado."
-		satisfied by ParkingSystemComponents.ImpressaoTicketCP;
+			satisfied by ParkingSystemComponents.ImpressaoTicketCP;
 		}
 	}
 	Requirement GerenciadorSaidaVeiculosFR ( 3 ) {
 		text =
-		"O sistema deve gerenciar a saída de veículos por meio de uma cancela eletrônica. Os veículos poderão deixar o estacionamento apenas após o pagamento da taxa de estacionamento." satisfied
-		by ParkingSystemComponents.GerenciadorEntradaSaidaVeiculo;
+		"O sistema deve gerenciar a saída de veículos por meio de uma cancela eletrônica. Os veículos poderão deixar o estacionamento apenas após o pagamento da taxa de estacionamento."
+		satisfied by ParkingSystemComponents.GerenciadorEntradaSaidaVeiculo;
 		Requirement LerTicketFR ( 3.1 ) {
 			text =
 			"A partir da leitura do código de barras impresso no ticket o sistema deve recuperar todas as informações associadas ao ticket (horário de entrada no estacionamento, valor da taxa de estacionamento,  se a taxa foi ou não paga, se foi paga o horário de pagamento )."
-		satisfied by ParkingSystemComponents.LeituraTicketCP;
+			satisfied by ParkingSystemComponents.LeituraTicketCP;
 		}
 	}
 	Requirement DetectorVeiculoFR ( 4 ) {
 		text =
 		"Ao se se aproximar com o veículo da cancela eletrônica a presença do veículo deve ser detectada de forma automática."
-	satisfied by ParkingSystemComponents.DetectorEntradaVeiculoCP,
+		satisfied by ParkingSystemComponents.DetectorEntradaVeiculoCP,
 		ParkingSystemComponents.DetectorSaidaVeiculoCP;
 	}
 	Requirement AbrirCancelaEletronicaFR ( 5 ) {
 		text =
 		"A cancela eletrônica deve abrir automaticamente após o motorista recolher o ticket impresso na entrada e no momento em que o motorista apresentar o ticket devidamente paga na saída do estacionamento"
-	satisfied by ParkingSystemComponents.EntradaCancelaCP,
+		satisfied by ParkingSystemComponents.EntradaCancelaCP,
 		ParkingSystemComponents.SaidaCancelaCP;
 	}
 	Requirement GerenciadorPagamentoFR ( 6 ) {
 		text =
-		"O sistema deve permitir ao usuário realizar o pagamento da taxa de estacionamento. O pagamento deve ser calculado com base no tempo em que o veículo esteve no estacionamento." satisfied
-		by ParkingSystemComponents.GerenciadorPagamentoCP;
+		"O sistema deve permitir ao usuário realizar o pagamento da taxa de estacionamento. O pagamento deve ser calculado com base no tempo em que o veículo esteve no estacionamento."
+		satisfied by ParkingSystemComponents.GerenciadorPagamentoCP;
 		Requirement RealizarPagamentoFR ( 6.1 ) {
 			text =
 			"O sistema deve permitir ao usuário realizar o pagamento em caixas automáticos com cartão ou dinheiro."
@@ -90,7 +89,7 @@ package SysADL.types {
 	Requirement AbrirCancelaEmergencialFR ( 7 ) {
 		text =
 		"Em casos de emergência o operador do estacionamento poderá abrir a cancela de emergência."
-	satisfied by ParkingSystemComponents.BotaoDeEmergenciaCP;
+		satisfied by ParkingSystemComponents.BotaoDeEmergenciaCP;
 	}
 	package ParkingSystemConnectors {
 		import ParkingSystemPorts;
@@ -151,10 +150,8 @@ package SysADL.types {
 		import SysADL.types;
 		component def GerenciadorVagas {
 			ports:
-			
-			
 			outVagas : VagasOPT;
-			
+			inVagas : VagasIPT;
 			configuration {
 				components:
 				ControladorVagaLocal : ControladorVagaLocal {
@@ -200,9 +197,9 @@ package SysADL.types {
 		component def GerenciadorEntradaSaidaVeiculo {
 			ports:
 			inVagas : VagasIPT;
+			outVagasOPT : VagasOPT;
 			configuration {
 				components:
-				
 				GerenciadorEntradaSaidaCP : GerenciadorEntradaSaidaCP {
 					using
 					ports:
@@ -228,13 +225,12 @@ package SysADL.types {
 					inEmergencia : CommandIPT;
 				}
 				connectors:
-				
 				codTicket : CodigoTicketCN bindings outCodTicket = inCodTicket;
 				emergenciaCmd : CtrlComandoCN bindings outSaidaEmergencia = inEmergencia;
 				codTicketSaida : CodigoTicketCN bindings outCodTicketSaida =
 				inCodTicketSaida;
 				delegations:
-				inVagas to inVagas
+				inVagas to inVagas outVagas to outVagasOPT
 			}
 		}
 		boundary component def ImpressaoTicketCP {
@@ -268,19 +264,22 @@ package SysADL.types {
 		}
 		component def ParkingSystem {
 			configuration {
-			components:
+				components:
+				GerenciadorEntradaSaidaVeiculo : GerenciadorEntradaSaidaVeiculo {
+					using
+					ports:
+					inVagas2 : VagasIPT;
+					outVagasOPT : VagasOPT;
+				}
 				GerenciadorVagas : GerenciadorVagas {
 					using
 					ports:
 					outVagas : VagasOPT;
-				}
-				GerenciadorEntradaSaidaVeiculo : GerenciadorEntradaSaidaVeiculo {
-					using
-					ports:
 					inVagas : VagasIPT;
 				}
 				connectors:
-				informaVagas : QuantidadeVagasCN bindings outVagas = inVagas;
+				qtdVagas : QuantidadeVagasCN bindings outVagasOPT = inVagas;
+				qtdVagas2 : QuantidadeVagasCN bindings outVagas = inVagas2;
 			}
 		}
 		component def ControladorQtdVagasCP {
@@ -448,8 +447,7 @@ package SysADL.types {
 				saidaComando : CtrlComandoCN bindings outSaida = inSaida;
 				codTicket : CodigoTicketCN bindings outLeituraTicket = inLeituraTicket;
 				delegations:
-				inCodTicketExit to inCodTicketExit
-			inCtrlCancela to inEmergencia
+				inCodTicketExit to inCodTicketExit inCtrlCancela to inEmergencia
 			}
 		}
 		component def GerenciadorEntradaSaidaCP {
@@ -464,6 +462,44 @@ package SysADL.types {
 			outModificaCorTipoVaga : TipoCorVagaOPT;
 			outVagas : VagasOPT;
 			outQtdVagas : VagasOPT;
+		}
+		activity def EntradaVeiculoAC ( detectaVeiculoIN : Boolean, qtdVagasIN : Int
+		) : ( codigoTicketOUT : CodigoIdentificacao, comandoCancelaOUT : Comando ) {
+			body {
+				actions : GeradorCodigoTicketAN : GeradorCodigoTicketAN {
+					using pins : detectaVeiculoIN : Boolean;
+					qtdVagasIN : Int;
+				}
+				ControleCancelaAN : ControleCancelaAN {
+					using pins : codTicketIN : CodigoIdentificacao;
+				}
+				delegate detectaVeiculoIN to detectaVeiculoIN
+				delegate qtdVagasIN to qtdVagasIN flow from GeradorCodigoTicketAN to
+				codTicketIN
+				delegate codigoTicketOUT to GeradorCodigoTicketAN
+				delegate comandoCancelaOUT to ControleCancelaAN
+			}
+		}
+		action def GeradorCodigoTicketAN ( detectaVeiculoIN : Boolean, qtdVagasIN :
+		Int ) : CodigoIdentificacao {
+			constraint : post-condition GeradorCodigoTicketEQ
+			delegate GeradorCodigoTicketAN to codigoTicketOUT
+			delegate detectaVeiculoIN to detectaVeiculoIN
+			delegate qtdVagasIN to qtdVagasIN
+		}
+		constraint GeradorCodigoTicketEQ ( detectaVeiculoIN : Boolean, qtdVagasIN :
+		Int ) : ( codigoTicketOUT : CodigoIdentificacao ) {
+		//TODO ver as qtd total de vagas
+			equation = detectaVeiculoIN == true && qtdVagasIN < 50 ? codigoTicketOUT :
+			null
+		}
+		action def ControleCancelaAN ( codTicketIN : CodigoIdentificacao ) : Comando
+		{
+			constraint : post-condition ControleCancelaEQ
+		}
+		constraint ControleCancelaEQ ( codTicketIN : CodigoIdentificacao ) : (
+		comandoCancelaOUT : Comando ) {
+			equation = codTicketIN != null ? comandoCancelaOUT == Comando::ABRIR : comandoCancelaOUT == Comando::FECHAR 
 		}
 	}
 	package ParkingSystemPorts {
