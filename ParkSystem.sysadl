@@ -496,6 +496,8 @@ package SysADL.types {
 		action def ControleCancelaAN ( codTicketIN : CodigoIdentificacao ) : Comando
 		{
 			constraint : post-condition ControleCancelaEQ
+		delegate codTicketIN to codTicketIN
+			delegate ControleCancelaAN to comandoCancelaOUT
 		}
 		constraint ControleCancelaEQ ( codTicketIN : CodigoIdentificacao ) : (
 		comandoCancelaOUT : Comando ) {
@@ -521,8 +523,13 @@ package SysADL.types {
 			}
 		}
 		action def LeituraCodigoTicketAN ( detectaVeiculoIN : Boolean, qtdVagasIN :
-		Int, statusPagamentoIN : Boolean ) : Boolean {
+		Int, statusPagamentoIN : Boolean , botaoEmergencia : Boolean ) : Boolean {
 			constraint : post-condition LeituraCodigoTicketEQ
+		delegate LeituraCodigoTicketAN to comandoCancelaOUT
+			delegate botaoEmergencia to botaoEmergencia
+			delegate detectaVeiculoIN to detectaVeiculoIN
+			delegate statusPagamentoIN to statusPagamentoIN
+			delegate qtdVagasIN to qtdVagasIN
 		}
 		constraint LeituraCodigoTicketEQ ( detectaVeiculoIN : Boolean, qtdVagasIN :
 		Int, statusPagamentoIN : Boolean, botaoEmergencia : Boolean ) : (
@@ -531,9 +538,12 @@ package SysADL.types {
 			botaoEmergencia == true ? comandoCancelaOUT == Comando :: ABRIR :
 			comandoCancelaOUT == Comando :: FECHAR
 		}
-		action def GerenciarPagamentoAN ( codTicketIN : CodigoIdentificacao ) :
-		Boolean {
+		action def GerenciarPagamentoAN ( codTicketIN : CodigoIdentificacao , isPago :
+		Boolean ) : Boolean {
 			constraint : post-condition GerenciarPagamentoEQ
+		delegate GerenciarPagamentoAN to statusPagamentoOUT
+			delegate isPago to isPago
+			delegate codTicketIN to codTicketIN
 		}
 		constraint GerenciarPagamentoEQ ( codTicketIN : CodigoIdentificacao, isPago :
 		Boolean ) : ( statusPagamentoOUT : Boolean ) {
@@ -596,4 +606,8 @@ package SysADL.types {
 	Requirement ModificabilidadeDeSensoresNFR ( 8.2 ) {
 		text =
 		"Permitir que novas vagas e respectivos sensores sejam adicionados ao sistema"
+	}
+	allocations {
+		activity EntradaVeiculoAC to ControleEntradaCancela activity SaidaVeiculoAC
+		to ControleSaidaCancela
 	}
