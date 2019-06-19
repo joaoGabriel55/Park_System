@@ -499,7 +499,46 @@ package SysADL.types {
 		}
 		constraint ControleCancelaEQ ( codTicketIN : CodigoIdentificacao ) : (
 		comandoCancelaOUT : Comando ) {
-			equation = codTicketIN != null ? comandoCancelaOUT == Comando::ABRIR : comandoCancelaOUT == Comando::FECHAR 
+			equation = codTicketIN != null ? comandoCancelaOUT == Comando :: ABRIR :
+			comandoCancelaOUT == Comando :: FECHAR
+		}
+		activity def SaidaVeiculoAC ( dectadaVeiculoIN : Boolean, qtdVagasIN : Int,
+		codTicketIN : CodigoIdentificacao ) : ( comandoCancelaOUT : Comando ) {
+			body {
+				actions : GerenciarPagamentoAN : GerenciarPagamentoAN {
+					using pins : codTicketIN : CodigoIdentificacao;
+				}
+				LeituraCodigoTicketAN : LeituraCodigoTicketAN {
+					using pins : qtdVagasIN : Int;
+					detectaVeiculoIN : Boolean;
+					statusPagamentoIN : Boolean;
+				}
+				flow from GerenciarPagamentoAN to statusPagamentoIN
+				delegate codTicketIN to codTicketIN
+				delegate qtdVagasIN to qtdVagasIN
+				delegate dectadaVeiculoIN to detectaVeiculoIN
+				delegate comandoCancelaOUT to LeituraCodigoTicketAN
+			}
+		}
+		action def LeituraCodigoTicketAN ( detectaVeiculoIN : Boolean, qtdVagasIN :
+		Int, statusPagamentoIN : Boolean ) : Boolean {
+			constraint : post-condition LeituraCodigoTicketEQ
+		}
+		constraint LeituraCodigoTicketEQ ( detectaVeiculoIN : Boolean, qtdVagasIN :
+		Int, statusPagamentoIN : Boolean, botaoEmergencia : Boolean ) : (
+		comandoCancelaOUT : Comando ) {
+			equation = ( detectaVeiculoIN == true && statusPagamentoIN == true ) ||
+			botaoEmergencia == true ? comandoCancelaOUT == Comando :: ABRIR :
+			comandoCancelaOUT == Comando :: FECHAR
+		}
+		action def GerenciarPagamentoAN ( codTicketIN : CodigoIdentificacao ) :
+		Boolean {
+			constraint : post-condition GerenciarPagamentoEQ
+		}
+		constraint GerenciarPagamentoEQ ( codTicketIN : CodigoIdentificacao, isPago :
+		Boolean ) : ( statusPagamentoOUT : Boolean ) {
+			equation = codTicketIN == "codigoArmazenado" && isPago ? statusPagamentoOUT
+			== true : statusPagamentoOUT == false
 		}
 	}
 	package ParkingSystemPorts {
