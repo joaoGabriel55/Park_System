@@ -496,7 +496,7 @@ package SysADL.types {
 		action def ControleCancelaAN ( codTicketIN : CodigoIdentificacao ) : Comando
 		{
 			constraint : post-condition ControleCancelaEQ
-		delegate codTicketIN to codTicketIN
+			delegate codTicketIN to codTicketIN
 			delegate ControleCancelaAN to comandoCancelaOUT
 		}
 		constraint ControleCancelaEQ ( codTicketIN : CodigoIdentificacao ) : (
@@ -523,9 +523,9 @@ package SysADL.types {
 			}
 		}
 		action def LeituraCodigoTicketAN ( detectaVeiculoIN : Boolean, qtdVagasIN :
-		Int, statusPagamentoIN : Boolean , botaoEmergencia : Boolean ) : Boolean {
+		Int, statusPagamentoIN : Boolean, botaoEmergencia : Boolean ) : Boolean {
 			constraint : post-condition LeituraCodigoTicketEQ
-		delegate LeituraCodigoTicketAN to comandoCancelaOUT
+			delegate LeituraCodigoTicketAN to comandoCancelaOUT
 			delegate botaoEmergencia to botaoEmergencia
 			delegate detectaVeiculoIN to detectaVeiculoIN
 			delegate statusPagamentoIN to statusPagamentoIN
@@ -538,10 +538,10 @@ package SysADL.types {
 			botaoEmergencia == true ? comandoCancelaOUT == Comando :: ABRIR :
 			comandoCancelaOUT == Comando :: FECHAR
 		}
-		action def GerenciarPagamentoAN ( codTicketIN : CodigoIdentificacao , isPago :
+		action def GerenciarPagamentoAN ( codTicketIN : CodigoIdentificacao, isPago :
 		Boolean ) : Boolean {
 			constraint : post-condition GerenciarPagamentoEQ
-		delegate GerenciarPagamentoAN to statusPagamentoOUT
+			delegate GerenciarPagamentoAN to statusPagamentoOUT
 			delegate isPago to isPago
 			delegate codTicketIN to codTicketIN
 		}
@@ -550,7 +550,8 @@ package SysADL.types {
 			equation = codTicketIN == "codigoArmazenado" && isPago ? statusPagamentoOUT
 			== true : statusPagamentoOUT == false
 		}
-	activity def DisplayVagasVeiculoAC ( qtdVagasIN : Int ) : ( qtdTotalVagasOUT : Int ) {
+		activity def ControladorQtdVagasAC ( qtdVagasIN : Int ) : ( qtdTotalVagasOUT
+		: Int ) {
 			body {
 				actions : AtualizarDisplay : AtualizarDisplayAN {
 					using pins : qtdVagas : Int;
@@ -560,29 +561,55 @@ package SysADL.types {
 			}
 		}
 		action def AtualizarDisplayAN ( qtdVagasIN : Int ) : Int {
-		constraint : post-condition AtualizarDisplayEQ
+			constraint : post-condition AtualizarDisplayEQ
+		delegate qtdVagasIN to qtdVagasIN
+			delegate AtualizarDisplayAN to vagasOUT
 		}
-	activity def ControlarVagaLocalAC ( mudarTipoVagaIN : Tipo, vagaLivreIN : Tipo
-		) : ( vagaLivreOUT : Int, mudarTipoVagaOUT : Boolean ) {
+		activity def GerenciadorVagasAC ( mudarTipoVagaIN : Tipo, vagaLivreIN : Tipo,
+		tipoVagaAnterior : Tipo ) : ( vagaLivreOUT : Boolean, mudarTipoVagaOUT :
+		Boolean ) {
 			body {
-			actions : DetectaVagaLivreAN : DetectaVagaLivreAN {
+				actions : DetectaVagaLivreAN : DetectaVagaLivreAN {
 					using pins : vagaLivreIN : Boolean;
 				}
 				MudarTipoVagaAN : MudarTipoVagaAN {
-					using pins : novoTipoVagaIN : Tipo;
+					using pins : tipoVagaAnterior2 : Tipo;
+					novoTipoVagaIN : Tipo;
 				}
-				delegate mudarTipoVagaIN to novoTipoVagaIN
 				delegate vagaLivreIN to vagaLivreIN
 				delegate vagaLivreOUT to DetectaVagaLivreAN
+				
+			delegate mudarTipoVagaIN to novoTipoVagaIN
+				
+				delegate  tipoVagaAnterior to tipoVagaAnterior2
 				delegate mudarTipoVagaOUT to MudarTipoVagaAN
 			}
 		}
-		action def MudarTipoVagaAN ( novoTipoVagaIN : Tipo ) : Boolean {
+		action def MudarTipoVagaAN ( novoTipoVagaIN : Tipo , tipoVagaAnterior2 : Tipo
+		) : Boolean {
+			constraint : post-condition MudarTipoVagaEQ
+		delegate MudarTipoVagaAN to novoTipo
+			delegate novoTipoVagaIN to tipoVagaNovo
+			delegate tipoVagaAnterior2 to tipoVagaAtualIN
 		}
-		action def DetectaVagaLivreAN ( vagaLivreIN : Boolean ) : Int {
+		action def DetectaVagaLivreAN ( vagaLivreIN : Boolean, tipoVagaAnterior :
+		Tipo , tipoNovaVaga : Tipo ) : Boolean {
+		constraint : post-condition DetectaVagaLivreEQ
+			delegate DetectaVagaLivreAN to newPin
+			delegate tipoVagaAnterior to tipoVagaAnterior
+			delegate vagaLivreIN to vagaLivreIN
+			delegate tipoNovaVaga to tipoNovaVaga
 		}
-	constraint AtualizarDisplayEQ ( qtdVagasIN : Int ) : ( vagasOUT : Int ) {
-		equation = vagasOUT==qtdVagasIN
+		constraint AtualizarDisplayEQ ( qtdVagasIN : Int ) : ( vagasOUT : Int ) {
+			equation = vagasOUT == qtdVagasIN
+		}
+		constraint MudarTipoVagaEQ ( tipoVagaAtualIN : Comando, tipoVagaNovo : Tipo )
+		: ( novoTipo : Boolean ) {
+			equation = tipoVagaNovo != null && tipoVagaAtualIN == tipoVagaNovo
+		}
+		constraint DetectaVagaLivreEQ ( vagaLivreIN : Boolean, tipoVagaAnterior :
+		Tipo, tipoNovaVaga : Tipo ) : ( newPin : Boolean ) {
+			equation = vagaLivreIN == true ? tipoNovaVaga == tipoVagaAnterior : "" 
 		}
 	}
 	package ParkingSystemPorts {
@@ -644,4 +671,6 @@ package SysADL.types {
 	allocations {
 		activity EntradaVeiculoAC to ControleEntradaCancela activity SaidaVeiculoAC
 		to ControleSaidaCancela
+	activity ControladorQtdVagasAC to ControladorQtdVagas activity
+		GerenciadorVagasAC to GerenciadorVagas
 	}
